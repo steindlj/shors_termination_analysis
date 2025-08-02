@@ -1,0 +1,10 @@
+name: shors_termination_analysis
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13
+  - numpy
+  - sympy
+  - pip
+  - pip:
+      - python-dotenv
