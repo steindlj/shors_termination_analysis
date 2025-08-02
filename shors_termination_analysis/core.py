@@ -15,7 +15,7 @@ def shors_algorithm(N: int) -> list:
         0  # success: x+-1 mod N != 0
     ]
     while True:
-        a = np.random.default_rng().integers(0, N, dtype=int) # a in [2, N)
+        a = np.random.default_rng().integers(2, N, dtype=int) # a in [2, N)
         if np.gcd(a, N) > 1:
             f0 = np.gcd(a, N)
             f1 = 1
