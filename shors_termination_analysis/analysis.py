@@ -6,9 +6,13 @@ class Analysis:
         os.makedirs(output_dir, exist_ok=True)
         self.filename = os.path.join(output_dir, f"{filename}.csv")
         self.columns = [
-            "N", "total_runs", "total_attempts",
-            "success: gcd(a, N) > 1", "restart: r is odd",
-            "restart: x+-1 mod N = 0", "success: x+-1 mod N != 0"
+            "N", 
+            "Iterations", 
+            "Runs",
+            "Success (gcd(a;N)>1)", 
+            "Restart (odd r)",
+            "Restart (x+-1 mod N = 0)", 
+            "Success (x+-1 mod N /= 0)"
         ]
         self.df = pd.DataFrame(columns=self.columns)
 
@@ -18,12 +22,12 @@ class Analysis:
 
         summary_row = {
             "N": n,
-            "total_runs": len(statistics),
-            "total_attempts": total_attempts,
-            "success: gcd(a, N) > 1": total_counts[0],
-            "restart: r is odd": total_counts[1],
-            "restart: x+-1 mod N = 0": total_counts[2],
-            "success: x+-1 mod N != 0": total_counts[3],
+            "Iterations": len(statistics),
+            "Runs": total_attempts,
+            "Success (gcd(a;N)>1)": total_counts[0],
+            "Restart (odd r)": total_counts[1],
+            "Restart (x+-1 mod N = 0)": total_counts[2],
+            "Success (x+-1 mod N /= 0)": total_counts[3],
         }
         self.df = pd.concat([self.df, pd.DataFrame([summary_row])], ignore_index=True)
 
