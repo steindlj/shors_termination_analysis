@@ -5,6 +5,7 @@ from .analysis import Analysis
 
 def run_on_set(test_set: list[int], iterations: int, output_dir: str, filename: str, save: bool) -> None:
     """Run Shor's algorithm analysis on specified test set with defined iteration count."""
+    print(f"Executing Shor's algorithm for {test_set}")
     statistics = []
     analysis = Analysis(output_dir, filename)
     for n in test_set:
