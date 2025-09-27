@@ -28,7 +28,7 @@ conda activate shors_termination_analysis
 
 2. Run with CLI tool:
 
-````bash
+````
 python -m shors_termination_analysis.cli [-h] [-n [NUMBERS ...]] [-i ITERATIONS] [-o OUTPUT_DIR] [-fn FILENAME] [-s]
 
 options:
