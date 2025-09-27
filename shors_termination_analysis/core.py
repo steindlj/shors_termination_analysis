@@ -1,13 +1,29 @@
 import numpy as np
 
 def order_finding(a: int, N: int) -> int:
-    """Find the order r of a modulo N."""
+    """Find the order r of a modulo N.
+
+    Args:
+        a (int): The base integer.
+        N (int): The modulus.
+
+    Returns:
+        int: Order of r.
+    """
     for r in range(2, N):
         if pow(a, r, N) == 1:
             return r
 
 def shors_algorithm(N: int) -> list:
-    """Simulate Shor's algorithm, collecting statistics."""
+    """Simulate Shor's algorithm, collecting statistics.
+
+    Args:
+        N (int): The integer to be factorized.
+
+    Returns:
+        list: A list of counts/statistics related to termination criteria 
+              during the simulation.
+    """
     statistic = [0, 0, 0, 0]
     while True:
         a = np.random.default_rng().integers(2, N, dtype=int) # a in [2, N)

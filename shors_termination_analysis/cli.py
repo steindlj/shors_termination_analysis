@@ -3,12 +3,20 @@ from .data import DEFAULT_TEST_SET
 from .core import shors_algorithm
 from .analysis import Analysis
 
-def run_on_set(test_set: list[int], iterations: int, output_dir: str, filename: str, save: bool) -> None:
-    """Run Shor's algorithm analysis on specified test set with defined iteration count."""
-    print(f"Executing Shor's algorithm for {test_set}")
+def run_on_set(data_set: list[int], iterations: int, output_dir: str, filename: str, save: bool) -> None:
+    """Run Shor's algorithm analysis on data set with defined iteration count.
+
+    Args:
+        data_set (list[int]): input set for Shor's algorithm
+        iterations (int): algorithmiterations for each number in the data_set
+        output_dir (str): output directory
+        filename (str): filename for csv
+        save (bool): save results in "filename.csv"
+    """
+    print(f"Executing Shor's algorithm for {data_set}")
     statistics = []
     analysis = Analysis(output_dir, filename)
-    for n in test_set:
+    for n in data_set:
         for _ in range(iterations):
             statistics.append(shors_algorithm(n))
         analysis.add_run(statistics, n)
